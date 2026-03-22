@@ -127,7 +127,38 @@
             font-size: 0.85em;
             margin-top: 40px;
         }
+
+        .qr-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .qr-section h3 {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .qr-section .qr-url {
+            font-size: 0.82em;
+            color: #888;
+            margin-bottom: 20px;
+            word-break: break-all;
+        }
+
+        #qrcode {
+            display: inline-block;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -155,9 +186,28 @@
             </a>
         </div>
 
+        <div class="section-title">公開サイト QRコード</div>
+
+        <div class="qr-section">
+            <h3>📱 スマートフォンで読み取り</h3>
+            <div class="qr-url">https://imasatoinfomation-rgb.github.io/financial/</div>
+            <div id="qrcode"></div>
+        </div>
+
         <footer>
             &copy; 2026 Economic Forecast Dashboard &nbsp;|&nbsp; Powered by FRED API &amp; Chart.js
         </footer>
+
+        <script>
+            new QRCode(document.getElementById('qrcode'), {
+                text: 'https://imasatoinfomation-rgb.github.io/financial/',
+                width: 200,
+                height: 200,
+                colorDark: '#333333',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        </script>
     </div>
 </body>
 </html>
